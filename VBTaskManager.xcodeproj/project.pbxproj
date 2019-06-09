@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */; };
-		C04FD5F222AC31AD00D4CB8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FD5F122AC31AD00D4CB8D /* ViewController.swift */; };
 		C04FD5F522AC31AE00D4CB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F322AC31AE00D4CB8D /* Main.storyboard */; };
 		C04FD5F722AC31AE00D4CB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */; };
 		C04FD5FA22AC31AE00D4CB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F822AC31AE00D4CB8D /* LaunchScreen.storyboard */; };
+		C0D2D75922AD093200E63F19 /* VBTasksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */; };
+		C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75A22AD09D800E63F19 /* VBTask.swift */; };
+		C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */; };
+		C0D2D76322AD1C4500E63F19 /* VBTaskDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D76222AD1C4500E63F19 /* VBTaskDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C04FD5EC22AC31AD00D4CB8D /* VBTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VBTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C04FD5F122AC31AD00D4CB8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C04FD5F422AC31AE00D4CB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04FD5F922AC31AE00D4CB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04FD5FB22AC31AE00D4CB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTasksTVC.swift; sourceTree = "<group>"; };
+		C0D2D75A22AD09D800E63F19 /* VBTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTask.swift; sourceTree = "<group>"; };
+		C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskCell.swift; sourceTree = "<group>"; };
+		C0D2D76222AD1C4500E63F19 /* VBTaskDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +61,40 @@
 			isa = PBXGroup;
 			children = (
 				C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */,
-				C04FD5F122AC31AD00D4CB8D /* ViewController.swift */,
-				C04FD5F322AC31AE00D4CB8D /* Main.storyboard */,
+				C0D2D75722AD084000E63F19 /* Controller */,
+				C04FD60222AC32AA00D4CB8D /* Model */,
+				C04FD60122AC329100D4CB8D /* View */,
 				C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */,
 				C04FD5F822AC31AE00D4CB8D /* LaunchScreen.storyboard */,
 				C04FD5FB22AC31AE00D4CB8D /* Info.plist */,
 			);
 			path = VBTaskManager;
+			sourceTree = "<group>";
+		};
+		C04FD60122AC329100D4CB8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C04FD5F322AC31AE00D4CB8D /* Main.storyboard */,
+				C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C04FD60222AC32AA00D4CB8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0D2D75A22AD09D800E63F19 /* VBTask.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C0D2D75722AD084000E63F19 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */,
+				C0D2D76222AD1C4500E63F19 /* VBTaskDetailsVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +139,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -137,8 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C04FD5F222AC31AD00D4CB8D /* ViewController.swift in Sources */,
+				C0D2D75922AD093200E63F19 /* VBTasksTVC.swift in Sources */,
+				C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */,
+				C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */,
 				C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */,
+				C0D2D76322AD1C4500E63F19 /* VBTaskDetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +305,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VB.VBTaskManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -281,7 +318,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VB.VBTaskManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -304,6 +341,7 @@
 				C04FD60022AC31AE00D4CB8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
