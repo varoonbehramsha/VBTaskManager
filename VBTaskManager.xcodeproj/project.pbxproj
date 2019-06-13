@@ -11,6 +11,7 @@
 		C04FD5F522AC31AE00D4CB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F322AC31AE00D4CB8D /* Main.storyboard */; };
 		C04FD5F722AC31AE00D4CB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */; };
 		C04FD5FA22AC31AE00D4CB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F822AC31AE00D4CB8D /* LaunchScreen.storyboard */; };
+		C08CD88622B17708004204A8 /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C08CD88522B17707004204A8 /* Readme.rtf */; };
 		C0D2D75922AD093200E63F19 /* VBTasksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */; };
 		C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75A22AD09D800E63F19 /* VBTask.swift */; };
 		C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */; };
@@ -24,6 +25,7 @@
 		C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04FD5F922AC31AE00D4CB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04FD5FB22AC31AE00D4CB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08CD88522B17707004204A8 /* Readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTasksTVC.swift; sourceTree = "<group>"; };
 		C0D2D75A22AD09D800E63F19 /* VBTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTask.swift; sourceTree = "<group>"; };
 		C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskCell.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */,
 				C04FD5F822AC31AE00D4CB8D /* LaunchScreen.storyboard */,
 				C04FD5FB22AC31AE00D4CB8D /* Info.plist */,
+				C08CD88522B17707004204A8 /* Readme.rtf */,
 			);
 			path = VBTaskManager;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			files = (
 				C04FD5FA22AC31AE00D4CB8D /* LaunchScreen.storyboard in Resources */,
 				C04FD5F722AC31AE00D4CB8D /* Assets.xcassets in Resources */,
+				C08CD88622B17708004204A8 /* Readme.rtf in Resources */,
 				C04FD5F522AC31AE00D4CB8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

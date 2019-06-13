@@ -8,19 +8,20 @@
 
 import Foundation
 
-enum VBTaskPriority : String
+enum VBTaskPriority : String,Codable
 {
     case low,medium,high
 }
-enum VBTaskStatus : String
+enum VBTaskStatus : String,Codable
 {
     case open,closed
 }
-struct VBTask
+
+struct VBTask : Codable
 {
-    let taskID : String
+    let rowIndex : Int
     var title : String
-    var dueDate : Date?
+    var dueDate : Date
     var priority : VBTaskPriority
     var status : VBTaskStatus
     var notes : String?
