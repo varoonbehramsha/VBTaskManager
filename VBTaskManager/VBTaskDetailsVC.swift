@@ -24,11 +24,9 @@ class VBTaskDetailsVC: UIViewController
     
     weak var delegate:VBTaskDetailsVCDelegate?
     
-    private var currentTitle:String?
-    private var currentPriority:VBTaskPriority?
-    private var currentStatus:VBTaskStatus?
-    private var currentNotes:String?
-    private var currentDueDate: Date?
+    private var currentPriority:VBTaskPriority!
+    private var currentStatus:VBTaskStatus!
+    private var currentDueDate: Date!
     
     override func viewDidLoad()
     {
@@ -74,8 +72,8 @@ class VBTaskDetailsVC: UIViewController
     }
     @IBAction func saveButtonAction(_ sender: Any)
     {
-        let updatedTask = VBTask(rowIndex: self.task.rowIndex, title: self.currentTitle!, dueDate: self.task.dueDate, priority: self.task.priority, status: self.task.status, notes: self.task.notes)
-        self.updateTask(task: updatedTask) { (error) in
+        let updatedTask = VBTask(rowIndex: self.task.rowIndex, title: self.titleTextField.text!, dueDate: self.currentDueDate, priority: self.currentPriority, status: self.currentStatus, notes: self.notesTextView.text)
+        NetworkManager.shared.updateTask(task: updatedTask) { (error) in
             if error == nil
             {
                 DispatchQueue.main.async {
@@ -83,7 +81,7 @@ class VBTaskDetailsVC: UIViewController
                 }
             }else
             {
-                print("Update Task Failed : Error : \(error?.localizedDescription)")
+                print("Update Task Failed : Error : \(error?.localizedDescription ?? "")")
             }
         }
         
@@ -92,13 +90,11 @@ class VBTaskDetailsVC: UIViewController
     func setupUI()
     {
         // Initialising the properties required by the different UI components in this View Controller...
-        self.currentTitle = self.task.title
         self.currentStatus = self.task.status
         self.currentPriority = self.task.priority
-        self.currentNotes = self.task.notes
         self.currentDueDate = self.task.dueDate
         //
-        self.titleTextField.text = self.currentTitle
+        self.titleTextField.text = self.task.title
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM"
         
@@ -121,30 +117,12 @@ class VBTaskDetailsVC: UIViewController
             self.statusSegment.selectedSegmentIndex = 1
         }
         
-            self.notesTextView.text = self.currentNotes ?? ""
+            self.notesTextView.text = self.task.notes ?? ""
         
     }
     
-    //MARK : - Network Methods
     
-    func updateTask(task:VBTask,_ completionHandler:@escaping (_ error:Error?)->())
-    {
-        guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks/\(task.rowIndex)") else { return  }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("17m2WNo-PmSr4xyk4ktMyFxD_DAwl_vs8HhE3-KE5J78", forHTTPHeaderField: "X-Sheetson-Spreadsheet-Id")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "PUT"
-        let encoder = JSONEncoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        encoder.dateEncodingStrategy = .formatted(dateFormatter)
-        urlRequest.httpBody = try! encoder.encode(task)
-        let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-        urlSession.dataTask(with: urlRequest) { (data, response, error) in
-            
-            completionHandler(error)
-            }.resume()
-    }
+    
     /*
     // MARK: - Navigation
 
@@ -155,13 +133,4 @@ class VBTaskDetailsVC: UIViewController
     }
     */
 
-}
-extension VBTaskDetailsVC : UITextFieldDelegate
-{
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == self.titleTextField
-        {
-            self.currentTitle = textField.text
-        }
-    }
 }

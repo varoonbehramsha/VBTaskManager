@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03E845722B503D9009E37A9 /* VBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E845622B503D9009E37A9 /* VBNetworkManager.swift */; };
 		C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */; };
 		C04FD5F522AC31AE00D4CB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F322AC31AE00D4CB8D /* Main.storyboard */; };
 		C04FD5F722AC31AE00D4CB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04FD5F622AC31AE00D4CB8D /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C03E845622B503D9009E37A9 /* VBNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBNetworkManager.swift; sourceTree = "<group>"; };
 		C04FD5EC22AC31AD00D4CB8D /* VBTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VBTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04FD5F422AC31AE00D4CB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C03E845522B50336009E37A9 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				C03E845622B503D9009E37A9 /* VBNetworkManager.swift */,
+			);
+			name = "Network Layer";
+			sourceTree = "<group>";
+		};
 		C04FD5E322AC31AD00D4CB8D = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		C04FD60222AC32AA00D4CB8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C03E845522B50336009E37A9 /* Network Layer */,
 				C0D2D75A22AD09D800E63F19 /* VBTask.swift */,
 			);
 			name = Model;
@@ -179,6 +190,7 @@
 				C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */,
 				C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */,
 				C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */,
+				C03E845722B503D9009E37A9 /* VBNetworkManager.swift in Sources */,
 				C0D2D76322AD1C4500E63F19 /* VBTaskDetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

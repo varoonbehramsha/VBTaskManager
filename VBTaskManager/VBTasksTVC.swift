@@ -33,7 +33,7 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     //MARK: - Data Related Methods
     private func loadData()
     {
-        self.getTasks { (error, tasks) in
+        NetworkManager.shared.getTasks { (error, tasks) in
             if error == nil
             {
                 self.tasks = tasks
@@ -44,45 +44,7 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
             }
         }
     }
-    private func getTasks(completionHandler: @escaping (_ error:Error?,_ tasks:[VBTask])->())
-    {
-//        let task1 = VBTask(taskID: UUID().uuidString, title: "Design UI for Cell", dueDate: Date(), priority: .medium, status: .open, notes: nil)
-//        let task2 = VBTask(taskID: UUID().uuidString, title: "Design DB Model for Task", dueDate: Date(), priority: .medium, status: .open, notes: nil)
-//
-        guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks") else { return  }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("17m2WNo-PmSr4xyk4ktMyFxD_DAwl_vs8HhE3-KE5J78", forHTTPHeaderField: "X-Sheetson-Spreadsheet-Id")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "GET"
-        
-        let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-        urlSession.dataTask(with: urlRequest) { (data, response, error) in
-            if error == nil
-            {
-                do
-                {
-                    let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:Any]
-                    print(json)
-                    if let resultsJSON = json["results"] as? [[String:Any]]
-                    {
-                        let resultsData = try? JSONSerialization.data(withJSONObject: resultsJSON, options: .prettyPrinted)
-                        let decoder = JSONDecoder()
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "dd-MM-yyyy"
-                        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                        let tasks = try decoder.decode([VBTask].self, from: resultsData!)
-                        completionHandler(nil,tasks)
-                    }
-                    
-                }catch
-                {
-                    print("error:\(error.localizedDescription)")
-                }
-                
-            }
-        }.resume()
-        //completionHandler(nil,[task1,task2])
-    }
+    
     
     //MARK : - VBTaskDetailsVCDelegate
     func didSave()
@@ -106,7 +68,7 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VBTaskCell", for: indexPath) as! VBTaskCell
         // Configure the cell...
-
+        
         let task = self.tasks[indexPath.row]
         cell.titleLabel.text = task.title
      
