@@ -20,7 +20,7 @@ class NetworkManager
     /// Fetches tasks from a google sheet with the help of Sheetson API
     ///
     /// - Parameter completionHandler: (error, tasks))
-     func getTasks(completionHandler: @escaping (_ error:Error?,_ tasks:[VBTask])->())
+     func getTasks(completionHandler: @escaping (_ error:Error?,_ tasks:[VBTaskDTO])->())
     {
        
         guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks") else { return  }
@@ -44,7 +44,7 @@ class NetworkManager
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "dd-MM-yyyy"
                         decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                        let tasks = try decoder.decode([VBTask].self, from: resultsData!)
+                        let tasks = try decoder.decode([VBTaskDTO].self, from: resultsData!)
                         completionHandler(nil,tasks)
                     }
                     
@@ -68,7 +68,7 @@ class NetworkManager
     /// - Parameters:
     ///   - task: Task with updated details
     ///   - completionHandler: completion handler called when the operation is completed
-    func updateTask(task:VBTask,_ completionHandler:@escaping (_ error:Error?)->())
+    func updateTask(task:VBTaskDTO,_ completionHandler:@escaping (_ error:Error?)->())
     {
         guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks/\(task.rowIndex)") else { return  }
         var urlRequest = URLRequest(url: url)

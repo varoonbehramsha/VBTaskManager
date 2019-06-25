@@ -135,9 +135,6 @@
                                                     <segment title="!!"/>
                                                     <segment title="!!!"/>
                                                 </segments>
-                                                <connections>
-                                                    <action selector="prioritySegmentValueChanged:" destination="o5h-CH-VuO" eventType="valueChanged" id="W3H-JW-Ko8"/>
-                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
@@ -156,9 +153,6 @@
                                                     <segment title="Open"/>
                                                     <segment title="Closed"/>
                                                 </segments>
-                                                <connections>
-                                                    <action selector="statusSegmentValueChanged:" destination="o5h-CH-VuO" eventType="valueChanged" id="gDp-ms-M5Y"/>
-                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>

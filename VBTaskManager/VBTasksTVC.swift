@@ -13,8 +13,7 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     
     
 
-    private var tasks : [VBTask] = []
-    
+    fileprivate var presenter : VBTasksPresenter!
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -27,30 +26,28 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
         
         //Dynamic Row Height based on content size
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.loadData()
-    }
-
-    //MARK: - Data Related Methods
-    private func loadData()
-    {
-        NetworkManager.shared.getTasks { (error, tasks) in
+        self.presenter = VBTasksPresenter()
+        presenter.loadData { (error) in
             if error == nil
             {
-                self.tasks = tasks
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    
                 }
             }
         }
     }
-    
-    
+
+  
     //MARK : - VBTaskDetailsVCDelegate
     func didSave()
     {
         self.navigationController?.popViewController(animated: true)
-        self.loadData()
+        self.presenter.loadData { (error) in
+            if error == nil
+            {
+                self.tableView.reloadData()
+            }
+        }
     }
     // MARK: - Table view data source
 
@@ -61,70 +58,19 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.tasks.count
+        return self.presenter.tasks.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VBTaskCell", for: indexPath) as! VBTaskCell
-        // Configure the cell...
         
-        let task = self.tasks[indexPath.row]
-        cell.titleLabel.text = task.title
-     
-        switch task.priority
-        {
-        case .low: cell.priorityLabel.text = "!"
-        case .medium: cell.priorityLabel.text = "!!"
-        case .high: cell.priorityLabel.text = "!!!"
-        }
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
+        let task = self.presenter.tasks[indexPath.row]
         
-        cell.dueDateLabel.text = task.dueDate == nil ? " " : dateFormatter.string(from: task.dueDate)
-
+        let cell = VBTaskCell.dequeueCell(from: tableView, for: indexPath, with: task)
         cell.tag = indexPath.row
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -137,7 +83,8 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
             let taskDetailsVC = segue.destination as? VBTaskDetailsVC
             if let cell = sender as? VBTaskCell
             {
-                taskDetailsVC?.task = self.tasks[cell.tag]
+                let taskDetailsPresenter = VBTaskDetailsPresenter(task: self.presenter.tasks[cell.tag])
+                taskDetailsVC?.presenter = taskDetailsPresenter
                 taskDetailsVC?.delegate = self
             }
         }

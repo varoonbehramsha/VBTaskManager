@@ -15,7 +15,8 @@ protocol VBTaskDetailsVCDelegate: class
 
 class VBTaskDetailsVC: UIViewController
 {
-    var task:VBTask!
+    var presenter : VBTaskDetailsPresenter!
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dueDateButton: UIButton!
     @IBOutlet weak var prioritySegment: UISegmentedControl!
@@ -24,9 +25,7 @@ class VBTaskDetailsVC: UIViewController
     
     weak var delegate:VBTaskDetailsVCDelegate?
     
-    private var currentPriority:VBTaskPriority!
-    private var currentStatus:VBTaskStatus!
-    private var currentDueDate: Date!
+    
     
     override func viewDidLoad()
     {
@@ -43,94 +42,79 @@ class VBTaskDetailsVC: UIViewController
         super.viewWillAppear(animated)
     }
 
-    //MARK: - Button Actions
-    @IBAction func prioritySegmentValueChanged(_ sender: Any)
+    
+    @IBAction func saveButtonAction(_ sender: Any)
     {
+        //Update values before saving
+        self.presenter.title = self.titleTextField.text ?? ""
+        self.presenter.notes = self.notesTextView.text
+        
+        switch self.statusSegment.selectedSegmentIndex
+        {
+        case 0: // Open
+            self.presenter.status = .open
+        case 1: // Closed
+            self.presenter.status = .closed
+        default:break
+        }
+        
         switch self.prioritySegment.selectedSegmentIndex
         {
-        case 0: self.currentPriority = VBTaskPriority.low
-        case 1: self.currentPriority = VBTaskPriority.medium
+        case 0: self.presenter.priority = VBTaskPriority.low
+        case 1: self.presenter.priority = VBTaskPriority.medium
         case 2:
-            self.currentPriority = VBTaskPriority.high
+            self.presenter.priority = VBTaskPriority.high
             
         default:
             break
         }
-    }
-    
-    @IBAction func statusSegmentValueChanged(_ sender: Any)
-    {
-        switch self.statusSegment.selectedSegmentIndex
-        {
-        case 0: // Open
-            self.currentStatus = .open
-        case 1: // Closed
-            self.currentStatus = .closed
-        default:break
-        }
         
-    }
-    @IBAction func saveButtonAction(_ sender: Any)
-    {
-        let updatedTask = VBTask(rowIndex: self.task.rowIndex, title: self.titleTextField.text!, dueDate: self.currentDueDate, priority: self.currentPriority, status: self.currentStatus, notes: self.notesTextView.text)
-        NetworkManager.shared.updateTask(task: updatedTask) { (error) in
-            if error == nil
-            {
+        self.presenter.save { (error) in
+            if error == nil{
                 DispatchQueue.main.async {
                     self.delegate?.didSave()
                 }
-            }else
+                
+                }else
             {
-                print("Update Task Failed : Error : \(error?.localizedDescription ?? "")")
+                // Show alert with the error message
             }
         }
         
     }
+    
     //MARK:- Helper Methods
     func setupUI()
     {
         // Initialising the properties required by the different UI components in this View Controller...
-        self.currentStatus = self.task.status
-        self.currentPriority = self.task.priority
-        self.currentDueDate = self.task.dueDate
-        //
-        self.titleTextField.text = self.task.title
+        self.titleTextField.text = self.presenter.title
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM"
+        self.dueDateButton.setTitle(dateFormatter.string(from: self.presenter.dueDate), for: .normal)
         
-        self.dueDateButton.setTitle(dateFormatter.string(from: self.currentDueDate!), for: .normal)
-        
-        switch self.currentPriority! {
+        switch self.presenter.priority
+        {
         case .low:
             self.prioritySegment.selectedSegmentIndex = 0
         case .medium:
             self.prioritySegment.selectedSegmentIndex = 1
         case .high:
             self.prioritySegment.selectedSegmentIndex = 2
-            
         }
         
-        switch self.currentStatus! {
+        switch self.presenter.status
+        {
         case .open:
             self.statusSegment.selectedSegmentIndex = 0
         case .closed:
             self.statusSegment.selectedSegmentIndex = 1
         }
         
-            self.notesTextView.text = self.task.notes ?? ""
+        self.notesTextView.text = self.presenter.notes ?? ""
         
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+

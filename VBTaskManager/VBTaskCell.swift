@@ -25,3 +25,55 @@ class VBTaskCell: UITableViewCell {
     }
 
 }
+
+extension VBTaskCell
+{
+    public func configure(with presenter:VBTaskCellPresenter)
+    {
+     self.setPriorityLabel(priority: presenter.priority)
+        self.setTitleLabel(title: presenter.title)
+        self.setDueDateLabel(dueDate: presenter.dueDate)
+    }
+    
+    private func setPriorityLabel(priority:VBTaskPriority)
+    {
+        switch priority
+        {
+        case .low: self.priorityLabel.text = "!"
+        case .medium: self.priorityLabel.text = "!!"
+        case .high: self.priorityLabel.text = "!!!"
+        }
+    }
+    
+    private func setTitleLabel(title:String)
+    {
+        self.titleLabel.text = title
+    }
+    
+    private func setDueDateLabel(dueDate : Date)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        
+        self.dueDateLabel.text = dateFormatter.string(from: dueDate)
+    }
+    
+    
+}
+extension VBTaskCell
+{
+    public static var cellID : String
+    {
+        return "VBTaskCell"
+    }
+    
+    public static func dequeueCell(from tableView : UITableView, for indexPath: IndexPath, with task:VBTaskDTO) -> VBTaskCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: VBTaskCell.cellID, for: indexPath) as! VBTaskCell
+        let presenter = VBTaskCellPresenter(task: task)
+        
+        cell.configure(with: presenter)
+        
+        return cell
+    }
+}
