@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aNg-3L-ktV">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Task DetailsVC-->
+        <scene sceneID="MTs-h9-RRq">
+            <objects>
+                <viewController storyboardIdentifier="VBTaskDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aNg-3L-ktV" customClass="VBTaskDetailsVC" customModule="VBTaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5qJ-vp-O63"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ua2-ZX-JEh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d7Z-xO-57c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="61L-bB-KfO">
+                                <rect key="frame" x="20" y="52" width="374" height="810"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Design Cell UI" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-tS-Rcw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="aNg-3L-ktV" id="Nv5-hL-NmD"/>
+                                        </connections>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5vZ-Q7-tNx">
+                                        <rect key="frame" x="0.0" y="46" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRm-HW-wKB">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTc-pS-FSe">
+                                                <rect key="frame" x="321" y="0.0" width="53" height="30"/>
+                                                <state key="normal" title="9th Jun"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ZXC-2d-Xll">
+                                        <rect key="frame" x="0.0" y="101" width="374" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ek-bf-wOU">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="28"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kui-Dd-bWI">
+                                                <rect key="frame" x="294" y="0.0" width="80" height="29"/>
+                                                <segments>
+                                                    <segment title="!"/>
+                                                    <segment title="!!"/>
+                                                    <segment title="!!!"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lS9-mT-xFa">
+                                        <rect key="frame" x="0.0" y="154" width="374" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC3-CF-0mZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="28"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7u-zm-W8Y">
+                                                <rect key="frame" x="259" y="0.0" width="115" height="29"/>
+                                                <segments>
+                                                    <segment title="Open"/>
+                                                    <segment title="Closed"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJ0-3H-xRG">
+                                        <rect key="frame" x="0.0" y="207" width="374" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ReC-eR-9WX">
+                                        <rect key="frame" x="0.0" y="248" width="374" height="562"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ua2-ZX-JEh" firstAttribute="top" secondItem="61L-bB-KfO" secondAttribute="bottom" id="qUK-3I-xgP"/>
+                            <constraint firstItem="61L-bB-KfO" firstAttribute="top" secondItem="5qJ-vp-O63" secondAttribute="bottom" constant="8" id="qZC-uu-zZQ"/>
+                            <constraint firstItem="61L-bB-KfO" firstAttribute="leading" secondItem="d7Z-xO-57c" secondAttribute="leadingMargin" id="utj-md-M3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="61L-bB-KfO" secondAttribute="trailing" id="y4c-0y-nRv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JhP-RI-KEt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ccq-k1-TJV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mlc-TM-BBp">
+                            <connections>
+                                <action selector="saveButtonAction:" destination="aNg-3L-ktV" id="HJf-2a-dck"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dueDateButton" destination="iTc-pS-FSe" id="CFu-KT-KdL"/>
+                        <outlet property="notesTextView" destination="ReC-eR-9WX" id="VCq-O2-in5"/>
+                        <outlet property="prioritySegment" destination="kui-Dd-bWI" id="8pU-5X-a7t"/>
+                        <outlet property="statusSegment" destination="F7u-zm-W8Y" id="X6l-Mt-b5B"/>
+                        <outlet property="titleTextField" destination="eXt-tS-Rcw" id="kY9-CJ-6dF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZ1-tn-4tW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866.6666666666667" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+</document>

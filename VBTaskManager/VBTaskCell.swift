@@ -67,10 +67,9 @@ extension VBTaskCell
         return "VBTaskCell"
     }
     
-    public static func dequeueCell(from tableView : UITableView, for indexPath: IndexPath, with task:VBTaskDTO) -> VBTaskCell
+    public static func dequeueCell(from tableView : UITableView, for indexPath: IndexPath, with presenter:VBTaskCellPresenter) -> VBTaskCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: VBTaskCell.cellID, for: indexPath) as! VBTaskCell
-        let presenter = VBTaskCellPresenter(task: task)
         
         cell.configure(with: presenter)
         

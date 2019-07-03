@@ -26,6 +26,13 @@ class VBTaskDetailsVC: UIViewController
     weak var delegate:VBTaskDetailsVCDelegate?
     
     
+    func configure(presenter:VBTaskDetailsPresenter, delegate:VBTaskDetailsVCDelegate)
+    {
+        self.presenter = presenter
+        self.delegate = delegate
+        
+    }
+    
     
     override func viewDidLoad()
     {

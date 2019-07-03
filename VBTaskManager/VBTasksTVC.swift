@@ -14,6 +14,16 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     
 
     fileprivate var presenter : VBTasksPresenter!
+    fileprivate var taskCellMaker : DependencyRegistry.TaskCellMaker!
+    fileprivate var taskDetailsVCMaker : DependencyRegistry.TaskDetailsVCMaker!
+    
+    func configure(with presenter:VBTasksPresenter, taskDetailsVCMaker: @escaping DependencyRegistry.TaskDetailsVCMaker, taskCellMaker: @escaping DependencyRegistry.TaskCellMaker)
+    {
+        self.presenter = presenter
+        self.taskCellMaker = taskCellMaker
+        self.taskDetailsVCMaker = taskDetailsVCMaker
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -26,7 +36,6 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
         
         //Dynamic Row Height based on content size
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.presenter = VBTasksPresenter()
         presenter.loadData { (error) in
             if error == nil
             {
@@ -66,29 +75,20 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
         
         let task = self.presenter.tasks[indexPath.row]
         
-        let cell = VBTaskCell.dequeueCell(from: tableView, for: indexPath, with: task)
+        let cell = self.taskCellMaker(tableView,indexPath,task)
         cell.tag = indexPath.row
         return cell
     }
    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    //MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "TaskDetailsSegue"
-        {
-            let taskDetailsVC = segue.destination as? VBTaskDetailsVC
-            if let cell = sender as? VBTaskCell
-            {
-                let taskDetailsPresenter = VBTaskDetailsPresenter(task: self.presenter.tasks[cell.tag])
-                taskDetailsVC?.presenter = taskDetailsPresenter
-                taskDetailsVC?.delegate = self
-            }
-        }
+        let task = self.presenter.tasks[indexPath.row]
+        let taskDetailsVC = self.taskDetailsVCMaker(task,self)
+        self.navigationController?.pushViewController(taskDetailsVC, animated: true)
     }
+    
     
 
 }

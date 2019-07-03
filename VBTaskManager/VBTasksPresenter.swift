@@ -10,11 +10,18 @@ import Foundation
 
 class VBTasksPresenter
 {
+    var dataManager : VBDataManager
+    
      var tasks : [VBTaskDTO] = []
+    
+    init(dataManager:VBDataManager)
+    {
+        self.dataManager = dataManager
+    }
     
     func loadData(_ completionHandler:@escaping(_ error:Error?)->())
     {
-        VBDataManager.shared.getTasks { (error, tasks) in
+        self.dataManager.getTasks { (error, tasks) in
             if error == nil
             {
                 self.tasks = tasks

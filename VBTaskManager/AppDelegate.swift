@@ -9,7 +9,9 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
+    static var dependencyRegistry: DependencyRegistry!
 
     var window: UIWindow?
 

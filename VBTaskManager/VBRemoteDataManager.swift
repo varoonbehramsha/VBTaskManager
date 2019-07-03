@@ -1,28 +1,22 @@
 //
-//  VBNetworkManager.swift
+//  VBRemoteDataManager.swift
 //  VBTaskManager
 //
-//  Created by Varoon Behramsha on 15/06/19.
+//  Created by Varoon Behramsha on 03/07/19.
 //  Copyright © 2019 Varoon Behramsha. All rights reserved.
 //
 
 import Foundation
 
-class NetworkManager
+class VBRemoteDataManager
 {
-    static let shared = NetworkManager()
-  
-    private init ()
-    {
-        
-    }
     
     /// Fetches tasks from a google sheet with the help of Sheetson API
     ///
     /// - Parameter completionHandler: (error, tasks))
-     func getTasks(completionHandler: @escaping (_ error:Error?,_ tasks:[VBTaskDTO])->())
+    func getTasks(completionHandler: @escaping (_ error:Error?,_ tasks:[VBTaskDTO])->())
     {
-       
+        
         guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks") else { return  }
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("17m2WNo-PmSr4xyk4ktMyFxD_DAwl_vs8HhE3-KE5J78", forHTTPHeaderField: "X-Sheetson-Spreadsheet-Id")
@@ -60,7 +54,7 @@ class NetworkManager
                 completionHandler(error,[])
             }
             }.resume()
-
+        
     }
     
     /// Update the details of a specific task in the google sheet

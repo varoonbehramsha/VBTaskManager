@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C03E845722B503D9009E37A9 /* VBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E845622B503D9009E37A9 /* VBNetworkManager.swift */; };
 		C03E845922B80F4C009E37A9 /* VBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E845822B80F4C009E37A9 /* VBDataManager.swift */; };
 		C03E845E22BC06AC009E37A9 /* VBTasksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E845D22BC06AC009E37A9 /* VBTasksPresenter.swift */; };
 		C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */; };
@@ -17,6 +16,11 @@
 		C060308F22C13B0F00C4D748 /* VBTaskCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060308E22C13B0F00C4D748 /* VBTaskCellPresenter.swift */; };
 		C060309122C153A900C4D748 /* VBTaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060309022C153A900C4D748 /* VBTaskDetailsPresenter.swift */; };
 		C08CD88622B17708004204A8 /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C08CD88522B17707004204A8 /* Readme.rtf */; };
+		C0CBE13422CA80510042B2AD /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBE13222CA80510042B2AD /* SwinjectStoryboard+Extensions.swift */; };
+		C0CBE13522CA80510042B2AD /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBE13322CA80510042B2AD /* DependencyRegistry.swift */; };
+		C0CBE13722CBD9190042B2AD /* VBTaskDetailsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CBE13622CBD9190042B2AD /* VBTaskDetailsVC.storyboard */; };
+		C0CBE13922CCEF690042B2AD /* VBLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBE13822CCEF690042B2AD /* VBLocalDataManager.swift */; };
+		C0CBE13B22CCF0250042B2AD /* VBRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBE13A22CCF0250042B2AD /* VBRemoteDataManager.swift */; };
 		C0D2D75922AD093200E63F19 /* VBTasksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */; };
 		C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75A22AD09D800E63F19 /* VBTask.swift */; };
 		C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */; };
@@ -28,7 +32,6 @@
 		080E63AC1E3E6953BE2C80D2 /* Pods-VBTaskManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VBTaskManager.release.xcconfig"; path = "Target Support Files/Pods-VBTaskManager/Pods-VBTaskManager.release.xcconfig"; sourceTree = "<group>"; };
 		8EC79290B2EC9248ADE07175 /* Pods-VBTaskManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VBTaskManager.debug.xcconfig"; path = "Target Support Files/Pods-VBTaskManager/Pods-VBTaskManager.debug.xcconfig"; sourceTree = "<group>"; };
 		BEF18C2C3FF78B52A8FF1AB4 /* Pods_VBTaskManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VBTaskManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C03E845622B503D9009E37A9 /* VBNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBNetworkManager.swift; sourceTree = "<group>"; };
 		C03E845822B80F4C009E37A9 /* VBDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBDataManager.swift; sourceTree = "<group>"; };
 		C03E845D22BC06AC009E37A9 /* VBTasksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTasksPresenter.swift; sourceTree = "<group>"; };
 		C04FD5EC22AC31AD00D4CB8D /* VBTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VBTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +43,11 @@
 		C060308E22C13B0F00C4D748 /* VBTaskCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskCellPresenter.swift; sourceTree = "<group>"; };
 		C060309022C153A900C4D748 /* VBTaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskDetailsPresenter.swift; sourceTree = "<group>"; };
 		C08CD88522B17707004204A8 /* Readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		C0CBE13222CA80510042B2AD /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		C0CBE13322CA80510042B2AD /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
+		C0CBE13622CBD9190042B2AD /* VBTaskDetailsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VBTaskDetailsVC.storyboard; sourceTree = "<group>"; };
+		C0CBE13822CCEF690042B2AD /* VBLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBLocalDataManager.swift; sourceTree = "<group>"; };
+		C0CBE13A22CCF0250042B2AD /* VBRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBRemoteDataManager.swift; sourceTree = "<group>"; };
 		C0D2D75822AD093200E63F19 /* VBTasksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTasksTVC.swift; sourceTree = "<group>"; };
 		C0D2D75A22AD09D800E63F19 /* VBTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTask.swift; sourceTree = "<group>"; };
 		C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskCell.swift; sourceTree = "<group>"; };
@@ -78,7 +86,7 @@
 		C03E845522B50336009E37A9 /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
-				C03E845622B503D9009E37A9 /* VBNetworkManager.swift */,
+				C0CBE13A22CCF0250042B2AD /* VBRemoteDataManager.swift */,
 			);
 			name = "Network Layer";
 			sourceTree = "<group>";
@@ -87,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				C03E845822B80F4C009E37A9 /* VBDataManager.swift */,
+				C0CBE13822CCEF690042B2AD /* VBLocalDataManager.swift */,
 			);
 			name = "Data Layer";
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 		C04FD5EE22AC31AD00D4CB8D /* VBTaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				C0CBE13122CA80510042B2AD /* Dependencies */,
 				C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */,
 				C03E845C22BC067B009E37A9 /* Presenter */,
 				C0D2D75722AD084000E63F19 /* Controller */,
@@ -140,6 +150,7 @@
 				C04FD5F822AC31AE00D4CB8D /* LaunchScreen.storyboard */,
 				C04FD5F322AC31AE00D4CB8D /* Main.storyboard */,
 				C0D2D75C22AD118300E63F19 /* VBTaskCell.swift */,
+				C0CBE13622CBD9190042B2AD /* VBTaskDetailsVC.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -152,6 +163,15 @@
 				C03E845A22B80F5F009E37A9 /* Data Layer */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C0CBE13122CA80510042B2AD /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				C0CBE13222CA80510042B2AD /* SwinjectStoryboard+Extensions.swift */,
+				C0CBE13322CA80510042B2AD /* DependencyRegistry.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		C0D2D75722AD084000E63F19 /* Controller */ = {
@@ -230,6 +250,7 @@
 				C04FD5F722AC31AE00D4CB8D /* Assets.xcassets in Resources */,
 				C08CD88622B17708004204A8 /* Readme.rtf in Resources */,
 				C04FD5F522AC31AE00D4CB8D /* Main.storyboard in Resources */,
+				C0CBE13722CBD9190042B2AD /* VBTaskDetailsVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,11 +266,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-VBTaskManager/Pods-VBTaskManager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -288,13 +313,16 @@
 				C03E845922B80F4C009E37A9 /* VBDataManager.swift in Sources */,
 				C0D2D75922AD093200E63F19 /* VBTasksTVC.swift in Sources */,
 				C060309122C153A900C4D748 /* VBTaskDetailsPresenter.swift in Sources */,
+				C0CBE13B22CCF0250042B2AD /* VBRemoteDataManager.swift in Sources */,
 				C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */,
 				C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */,
 				C060308F22C13B0F00C4D748 /* VBTaskCellPresenter.swift in Sources */,
 				C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */,
-				C03E845722B503D9009E37A9 /* VBNetworkManager.swift in Sources */,
+				C0CBE13922CCEF690042B2AD /* VBLocalDataManager.swift in Sources */,
+				C0CBE13422CA80510042B2AD /* SwinjectStoryboard+Extensions.swift in Sources */,
 				C0D2D76322AD1C4500E63F19 /* VBTaskDetailsVC.swift in Sources */,
 				C03E845E22BC06AC009E37A9 /* VBTasksPresenter.swift in Sources */,
+				C0CBE13522CA80510042B2AD /* DependencyRegistry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

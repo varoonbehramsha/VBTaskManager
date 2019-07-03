@@ -10,6 +10,7 @@ import Foundation
 
 class VBTaskDetailsPresenter
 {
+    var dataManager : VBDataManager!
     private var task:VBTaskDTO!
     
     var title:String
@@ -18,7 +19,7 @@ class VBTaskDetailsPresenter
     var status:VBTaskStatus
     var notes : String?
     
-    init(task:VBTaskDTO)
+    init(task:VBTaskDTO, dataManager:VBDataManager)
     {
         self.task = task
         
@@ -27,13 +28,14 @@ class VBTaskDetailsPresenter
         self.priority = task.priority
         self.status = task.status
         self.notes = task.notes
+        self.dataManager = dataManager
     }
     
     func save(_ completionHandler:@escaping (_ error:Error?)->())
     {
         let updatedTask = VBTaskDTO(rowIndex: self.task.rowIndex, title: self.title, dueDate: self.dueDate, priority: self.priority, status: self.status, notes: self.notes)
         
-        VBDataManager.shared.updateTask(taskDTO: updatedTask) { (error) in
+        self.dataManager.updateTask(taskDTO: updatedTask) { (error) in
   
             completionHandler(error)
         }

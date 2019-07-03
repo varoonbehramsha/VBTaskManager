@@ -65,7 +65,6 @@
                                     <outlet property="dueDateLabel" destination="idK-X3-eNM" id="Krr-SQ-bSm"/>
                                     <outlet property="priorityLabel" destination="y5t-yP-lxc" id="LKL-N4-nqJ"/>
                                     <outlet property="titleLabel" destination="MHK-WQ-MBy" id="yVR-CC-mkj"/>
-                                    <segue destination="o5h-CH-VuO" kind="show" identifier="TaskDetailsSegue" id="rHT-eU-bwv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,125 +78,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FA-9v-S5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
-        </scene>
-        <!--Task DetailsVC-->
-        <scene sceneID="8YA-NR-roQ">
-            <objects>
-                <viewController id="o5h-CH-VuO" customClass="VBTaskDetailsVC" customModule="VBTaskManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aQD-3V-WPK"/>
-                        <viewControllerLayoutGuide type="bottom" id="w9a-fL-N1L"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2SP-ZM-aec">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-Ay-OL7">
-                                <rect key="frame" x="20" y="96" width="374" height="766"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Design Cell UI" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1J-Ld-70n">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="o5h-CH-VuO" id="pZI-ma-0et"/>
-                                        </connections>
-                                    </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="DQL-Sh-diz">
-                                        <rect key="frame" x="0.0" y="46" width="374" height="18"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRX-lI-T0J">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="18"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tE6-mu-aQp">
-                                                <rect key="frame" x="321" y="0.0" width="53" height="18"/>
-                                                <state key="normal" title="9th Jun"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="w06-UP-qg7">
-                                        <rect key="frame" x="0.0" y="89" width="374" height="22"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6u-DU-5mQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="22"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QWf-QS-pe4">
-                                                <rect key="frame" x="294" y="0.0" width="80" height="23"/>
-                                                <segments>
-                                                    <segment title="!"/>
-                                                    <segment title="!!"/>
-                                                    <segment title="!!!"/>
-                                                </segments>
-                                            </segmentedControl>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8UK-w8-oFE">
-                                        <rect key="frame" x="0.0" y="136" width="374" height="28"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-GD-mGu">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="28"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uFc-qI-a8Z">
-                                                <rect key="frame" x="259" y="0.0" width="115" height="29"/>
-                                                <segments>
-                                                    <segment title="Open"/>
-                                                    <segment title="Closed"/>
-                                                </segments>
-                                            </segmentedControl>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsM-Jx-hOM">
-                                        <rect key="frame" x="0.0" y="189" width="374" height="16"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4eN-GG-O9O">
-                                        <rect key="frame" x="0.0" y="230" width="374" height="536"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ebA-Ay-OL7" secondAttribute="trailing" id="Ejc-rF-5nc"/>
-                            <constraint firstItem="ebA-Ay-OL7" firstAttribute="top" secondItem="aQD-3V-WPK" secondAttribute="bottom" constant="8" id="M1F-c8-f7w"/>
-                            <constraint firstItem="ebA-Ay-OL7" firstAttribute="leading" secondItem="2SP-ZM-aec" secondAttribute="leadingMargin" id="MTT-K5-PVz"/>
-                            <constraint firstItem="w9a-fL-N1L" firstAttribute="top" secondItem="ebA-Ay-OL7" secondAttribute="bottom" id="UH1-1c-iuO"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="CeI-Q1-Alh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rkg-BH-T7l">
-                            <connections>
-                                <action selector="saveButtonAction:" destination="o5h-CH-VuO" id="fSY-Vs-csw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dueDateButton" destination="tE6-mu-aQp" id="gEi-iw-M4t"/>
-                        <outlet property="notesTextView" destination="4eN-GG-O9O" id="Z9h-sV-mA9"/>
-                        <outlet property="prioritySegment" destination="QWf-QS-pe4" id="XuZ-Bl-MOR"/>
-                        <outlet property="statusSegment" destination="uFc-qI-a8Z" id="Rnf-Ee-JAA"/>
-                        <outlet property="titleTextField" destination="a1J-Ld-70n" id="hMG-tE-vl5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y0A-W5-oVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1866.6666666666667" y="20.758928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="edn-V7-leJ">
