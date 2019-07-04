@@ -8,9 +8,17 @@
 
 import Foundation
 
-class VBTasksPresenter
+typealias BlockWithError = (_ error:Error?)->()
+
+protocol TaskPresenterProtocol
 {
-    var dataManager : VBDataManager
+    var tasks : [VBTaskDTO] { get }
+    func loadData(_ completionHandler:@escaping BlockWithError)
+}
+
+class VBTasksPresenter : TaskPresenterProtocol
+{
+    fileprivate var dataManager : VBDataManager
     
      var tasks : [VBTaskDTO] = []
     

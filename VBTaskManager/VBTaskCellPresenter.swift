@@ -8,13 +8,21 @@
 
 import Foundation
 
-class VBTaskCellPresenter
+protocol TaskCellPresenterProtocol
 {
-    private var task: VBTaskDTO!
+    var priority : VBTaskPriority { get }
+    var title:String { get }
+    var dueDate : Date { get }
     
-    var priority : VBTaskPriority! {return self.task.priority}
-    var title:String! {return self.task.title}
-    var dueDate : Date! {return self.task.dueDate}
+}
+
+class VBTaskCellPresenter : TaskCellPresenterProtocol
+{
+    var task: VBTaskDTO!
+    
+    var priority : VBTaskPriority {return self.task.priority}
+    var title:String {return self.task.title}
+    var dueDate : Date {return self.task.dueDate}
     
     init(task:VBTaskDTO)
     {

@@ -8,7 +8,14 @@
 
 import Foundation
 
-class VBDataManager
+protocol DataManagerProtocol
+{
+    func getTasks(_ completionHandler :@escaping BlockWithTasks)
+    func updateTask(taskDTO:VBTaskDTO,_ completionHandler: @escaping BlockWithError)
+
+}
+
+class VBDataManager : DataManagerProtocol
 {
     var remoteDataManager = VBRemoteDataManager()
     var localDataManager = VBLocalDataManager()
@@ -21,7 +28,7 @@ class VBDataManager
         
     }
     
-    func getTasks(_ completionHandler :@escaping (_ error:Error?,_ tasks:[VBTaskDTO])->())
+    func getTasks(_ completionHandler :@escaping BlockWithTasks)
     {
 
         //1. Get tasks from local DB
@@ -47,7 +54,7 @@ class VBDataManager
         }
     }
     
-    func updateTask(taskDTO:VBTaskDTO,_ completionHandler: @escaping (_ error:Error?)->())
+    func updateTask(taskDTO:VBTaskDTO,_ completionHandler: @escaping BlockWithError)
     {
         //1. Update in Remote DB
         self.remoteDataManager.updateTask(task: taskDTO) { (error) in

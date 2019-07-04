@@ -9,7 +9,13 @@
 import Foundation
 import RealmSwift
 
-class VBLocalDataManager
+protocol LocalDataManagerProtocol {
+    func getTasksfromLocalDB()-> [VBTask]
+    func addTasksToLocalDB(tasks:[VBTask])
+
+}
+
+class VBLocalDataManager : LocalDataManagerProtocol
 {
      func getTasksfromLocalDB()-> [VBTask]
     {

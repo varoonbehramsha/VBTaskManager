@@ -8,10 +8,22 @@
 
 import Foundation
 
-class VBTaskDetailsPresenter
+protocol TaskDetailsPresenter {
+    
+    var title:String { get }
+    var dueDate:Date { get }
+    var priority:VBTaskPriority { get }
+    var status:VBTaskStatus { get }
+    var notes : String? { get }
+    
+    func save(_ completionHandler:@escaping (_ error:Error?)->())
+
+}
+
+class VBTaskDetailsPresenter : TaskDetailsPresenter
 {
     var dataManager : VBDataManager!
-    private var task:VBTaskDTO!
+    var task:VBTaskDTO!
     
     var title:String
     var dueDate:Date

@@ -2,7 +2,19 @@ import UIKit
 import Swinject
 import SwinjectStoryboard
 
-class DependencyRegistry {
+protocol DependencyRegistryProtocol
+{
+    var container : Container { get }
+    
+    typealias TaskCellMaker = (UITableView, IndexPath, VBTaskDTO) -> VBTaskCell
+    func makeTaskCell(for tableView:UITableView,at indexPath:IndexPath,for task:VBTaskDTO) -> VBTaskCell
+    
+    typealias TaskDetailsVCMaker = (VBTaskDTO, VBTaskDetailsVCDelegate) -> VBTaskDetailsVC
+    func makeTaskDetailsVC(with task:VBTaskDTO, delegate:VBTaskDetailsVCDelegate) -> VBTaskDetailsVC
+    
+}
+
+class DependencyRegistry:DependencyRegistryProtocol {
 
     var container: Container
     

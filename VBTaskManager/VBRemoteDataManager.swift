@@ -8,13 +8,20 @@
 
 import Foundation
 
-class VBRemoteDataManager
+typealias BlockWithTasks = (_ error:Error?,_ tasks:[VBTaskDTO])->()
+protocol RemoteDataManagerProtocol
+{
+    func getTasks(completionHandler: @escaping BlockWithTasks)
+    func updateTask(task:VBTaskDTO,_ completionHandler:@escaping BlockWithError)
+}
+
+class VBRemoteDataManager : RemoteDataManagerProtocol
 {
     
     /// Fetches tasks from a google sheet with the help of Sheetson API
     ///
     /// - Parameter completionHandler: (error, tasks))
-    func getTasks(completionHandler: @escaping (_ error:Error?,_ tasks:[VBTaskDTO])->())
+    func getTasks(completionHandler: @escaping BlockWithTasks)
     {
         
         guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks") else { return  }
@@ -62,7 +69,7 @@ class VBRemoteDataManager
     /// - Parameters:
     ///   - task: Task with updated details
     ///   - completionHandler: completion handler called when the operation is completed
-    func updateTask(task:VBTaskDTO,_ completionHandler:@escaping (_ error:Error?)->())
+    func updateTask(task:VBTaskDTO,_ completionHandler:@escaping BlockWithError)
     {
         guard let url = URL(string: "https://api.sheetson.com/v1/sheets/Tasks/\(task.rowIndex)") else { return  }
         var urlRequest = URLRequest(url: url)
