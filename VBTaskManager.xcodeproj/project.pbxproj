@@ -16,6 +16,7 @@
 		C060308F22C13B0F00C4D748 /* VBTaskCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060308E22C13B0F00C4D748 /* VBTaskCellPresenter.swift */; };
 		C060309122C153A900C4D748 /* VBTaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060309022C153A900C4D748 /* VBTaskDetailsPresenter.swift */; };
 		C08CD88622B17708004204A8 /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C08CD88522B17707004204A8 /* Readme.rtf */; };
+		C0BD8B3922CF7E2000C36169 /* RootNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD8B3822CF7E1F00C36169 /* RootNavigationCoordinator.swift */; };
 		C0CBE13422CA80510042B2AD /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBE13222CA80510042B2AD /* SwinjectStoryboard+Extensions.swift */; };
 		C0CBE13522CA80510042B2AD /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBE13322CA80510042B2AD /* DependencyRegistry.swift */; };
 		C0CBE13722CBD9190042B2AD /* VBTaskDetailsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CBE13622CBD9190042B2AD /* VBTaskDetailsVC.storyboard */; };
@@ -43,6 +44,7 @@
 		C060308E22C13B0F00C4D748 /* VBTaskCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskCellPresenter.swift; sourceTree = "<group>"; };
 		C060309022C153A900C4D748 /* VBTaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTaskDetailsPresenter.swift; sourceTree = "<group>"; };
 		C08CD88522B17707004204A8 /* Readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		C0BD8B3822CF7E1F00C36169 /* RootNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationCoordinator.swift; sourceTree = "<group>"; };
 		C0CBE13222CA80510042B2AD /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		C0CBE13322CA80510042B2AD /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
 		C0CBE13622CBD9190042B2AD /* VBTaskDetailsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VBTaskDetailsVC.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		C04FD5EE22AC31AD00D4CB8D /* VBTaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				C0BD8B3722CF7DF100C36169 /* Navigation */,
 				C0CBE13122CA80510042B2AD /* Dependencies */,
 				C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */,
 				C03E845C22BC067B009E37A9 /* Presenter */,
@@ -163,6 +166,14 @@
 				C03E845A22B80F5F009E37A9 /* Data Layer */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C0BD8B3722CF7DF100C36169 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C0BD8B3822CF7E1F00C36169 /* RootNavigationCoordinator.swift */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		C0CBE13122CA80510042B2AD /* Dependencies */ = {
@@ -312,6 +323,7 @@
 			files = (
 				C03E845922B80F4C009E37A9 /* VBDataManager.swift in Sources */,
 				C0D2D75922AD093200E63F19 /* VBTasksTVC.swift in Sources */,
+				C0BD8B3922CF7E2000C36169 /* RootNavigationCoordinator.swift in Sources */,
 				C060309122C153A900C4D748 /* VBTaskDetailsPresenter.swift in Sources */,
 				C0CBE13B22CCF0250042B2AD /* VBRemoteDataManager.swift in Sources */,
 				C0D2D75B22AD09D800E63F19 /* VBTask.swift in Sources */,

@@ -19,8 +19,9 @@ extension SwinjectStoryboard {
 
                 let presenter = r.resolve(VBTasksPresenter.self)!
 
+                let coordinator = dependencyRegistry.makeRootNavigationCoordinator(rootVC: vc)
                 //NOTE: We don't have access to the constructor for this VC so we are using method injection
-                vc.configure(with: presenter, taskDetailsVCMaker: dependencyRegistry.makeTaskDetailsVC, taskCellMaker: dependencyRegistry.makeTaskCell)
+                vc.configure(with: presenter,navigationCoordinator: coordinator, taskCellMaker: dependencyRegistry.makeTaskCell)
 
             }
         }

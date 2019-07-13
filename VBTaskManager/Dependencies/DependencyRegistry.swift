@@ -6,6 +6,7 @@ protocol DependencyRegistryProtocol
 {
     var container : Container { get }
     
+    func makeRootNavigationCoordinator(rootVC:UIViewController) -> RootNavigationCoordinatorProtocol
     typealias TaskCellMaker = (UITableView, IndexPath, VBTaskDTO) -> VBTaskCell
     func makeTaskCell(for tableView:UITableView,at indexPath:IndexPath,for task:VBTaskDTO) -> VBTaskCell
     
@@ -15,6 +16,8 @@ protocol DependencyRegistryProtocol
 }
 
 class DependencyRegistry:DependencyRegistryProtocol {
+    
+    
 
     var container: Container
     
@@ -30,6 +33,11 @@ class DependencyRegistry:DependencyRegistryProtocol {
     }
     
     func registerDependencies() {
+        
+        container.register(RootNavigationCoordinatorProtocol.self) { (r, rootVC:UIViewController) in
+        
+            return RootNavigationCoordinator(with: rootVC, dependencyRegistry: self)
+        }.inObjectScope(.container)
         
         container.register(VBRemoteDataManager.self    ) { _ in VBRemoteDataManager()  }.inObjectScope(.container)
         container.register(VBLocalDataManager.self){_ in VBLocalDataManager()}.inObjectScope(.container)
@@ -61,6 +69,12 @@ class DependencyRegistry:DependencyRegistryProtocol {
 
     //MARK: - Maker Methods
     
+    func makeRootNavigationCoordinator(rootVC: UIViewController) -> RootNavigationCoordinatorProtocol
+    {
+        let rootNavigationCoordinator = container.resolve(RootNavigationCoordinatorProtocol.self, argument: rootVC)!
+        return rootNavigationCoordinator
+    }
+    
     typealias TaskCellMaker = (UITableView, IndexPath, VBTaskDTO) -> VBTaskCell
     func makeTaskCell(for tableView:UITableView,at indexPath:IndexPath,for task:VBTaskDTO) -> VBTaskCell
     {
@@ -75,21 +89,5 @@ class DependencyRegistry:DependencyRegistryProtocol {
 
         return container.resolve(VBTaskDetailsVC.self, arguments: task, delegate)!
     }
-    
-//    typealias SpyCellMaker = (UITableView, IndexPath, SpyDTO) -> SpyCell
-//    func makeSpyCell(for tableView: UITableView, at indexPath: IndexPath, spy: SpyDTO) -> SpyCell {
-//        let presenter = container.resolve(SpyCellPresenter.self, argument: spy)!
-//        let cell = SpyCell.dequeue(from: tableView, for: indexPath, with: presenter)
-//        return cell
-//    }
-//    
-//    typealias DetailViewControllerMaker = (SpyDTO) -> DetailViewController
-//    func makeDetailViewController(with spy: SpyDTO) -> DetailViewController {
-//        return container.resolve(DetailViewController.self, argument: spy)!
-//    }
-//
-//    typealias SecretDetailsViewControllerMaker = (SpyDTO, SecretDetailsDelegate)  -> SecretDetailsViewController
-//    func makeSecretDetailsViewController(with spy: SpyDTO, delegate: SecretDetailsDelegate) -> SecretDetailsViewController {
-//        return container.resolve(SecretDetailsViewController.self, arguments: spy, delegate)!
-//    }
+
 }

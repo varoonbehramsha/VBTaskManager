@@ -14,14 +14,14 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     
 
     fileprivate var presenter : VBTasksPresenter!
+    fileprivate var navigationCoordinator : RootNavigationCoordinatorProtocol!
     fileprivate var taskCellMaker : DependencyRegistry.TaskCellMaker!
-    fileprivate var taskDetailsVCMaker : DependencyRegistry.TaskDetailsVCMaker!
     
-    func configure(with presenter:VBTasksPresenter, taskDetailsVCMaker: @escaping DependencyRegistry.TaskDetailsVCMaker, taskCellMaker: @escaping DependencyRegistry.TaskCellMaker)
+    func configure(with presenter:VBTasksPresenter, navigationCoordinator:RootNavigationCoordinatorProtocol, taskCellMaker: @escaping DependencyRegistry.TaskCellMaker)
     {
         self.presenter = presenter
+        self.navigationCoordinator = navigationCoordinator
         self.taskCellMaker = taskCellMaker
-        self.taskDetailsVCMaker = taskDetailsVCMaker
     }
     
     override func viewDidLoad()
@@ -85,8 +85,7 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let task = self.presenter.tasks[indexPath.row]
-        let taskDetailsVC = self.taskDetailsVCMaker(task,self)
-        self.navigationController?.pushViewController(taskDetailsVC, animated: true)
+        self.navigationCoordinator.showTaskDetails(task: task, delegate: self)
     }
     
     
