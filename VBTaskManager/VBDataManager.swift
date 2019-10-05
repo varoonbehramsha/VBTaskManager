@@ -17,11 +17,11 @@ protocol DataManagerProtocol
 
 class VBDataManager : DataManagerProtocol
 {
-    var remoteDataManager = VBRemoteDataManager()
-    var localDataManager = VBLocalDataManager()
+    var remoteDataManager : RemoteDataManagerProtocol!
+    var localDataManager : LocalDataManagerProtocol!
     
 
-    init(remoteDataManager:VBRemoteDataManager, localDataManager:VBLocalDataManager)
+    init(remoteDataManager:RemoteDataManagerProtocol, localDataManager:LocalDataManagerProtocol)
     {
         self.remoteDataManager = remoteDataManager
         self.localDataManager = localDataManager
@@ -31,12 +31,8 @@ class VBDataManager : DataManagerProtocol
     func getTasks(_ completionHandler :@escaping BlockWithTasks)
     {
 
-        //1. Get tasks from local DB
-        DispatchQueue.main.async {
-            let tasks = self.localDataManager.getTasksfromLocalDB()
-            completionHandler(nil,tasks.map{VBTaskDTO(task: $0)})
-        }
-        //2. Fetch tasks from remote DB
+        
+        //1. Fetch tasks from remote DB
         self.remoteDataManager.getTasks { (error, taskDTOs) in
             if error == nil
             {
@@ -49,7 +45,11 @@ class VBDataManager : DataManagerProtocol
                 
             }else
             {
-                completionHandler(error,[])
+                //2. Get tasks from local DB
+                DispatchQueue.main.async {
+                    let tasks = self.localDataManager.getTasksfromLocalDB()
+                    completionHandler(nil,tasks.map{VBTaskDTO(task: $0)})
+                }
             }
         }
     }

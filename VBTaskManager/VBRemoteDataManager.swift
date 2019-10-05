@@ -9,6 +9,7 @@
 import Foundation
 
 typealias BlockWithTasks = (_ error:Error?,_ tasks:[VBTaskDTO])->()
+
 protocol RemoteDataManagerProtocol
 {
     func getTasks(completionHandler: @escaping BlockWithTasks)
