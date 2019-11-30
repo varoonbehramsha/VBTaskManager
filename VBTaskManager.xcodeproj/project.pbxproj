@@ -34,11 +34,20 @@
 		C0ED88EA234526A10097A367 /* VBLocalDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88E9234526A10097A367 /* VBLocalDataManagerTests.swift */; };
 		C0ED88EC2345276F0097A367 /* VBDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88EB2345276F0097A367 /* VBDataManagerMock.swift */; };
 		C0ED88EE2345279E0097A367 /* VBTasksPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88ED2345279E0097A367 /* VBTasksPresenterTests.swift */; };
+		C0ED88FB2349BBC20097A367 /* VBTasksPresenterUITestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88FA2349BBC20097A367 /* VBTasksPresenterUITestMock.swift */; };
+		C0ED890A234CC3DC0097A367 /* VBTaskManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88F52348A73B0097A367 /* VBTaskManagerUITests.swift */; };
 		D563CC09165617974334F309 /* Pods_VBTaskManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF18C2C3FF78B52A8FF1AB4 /* Pods_VBTaskManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		C0ED88DD234525120097A367 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C04FD5E422AC31AD00D4CB8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C04FD5EB22AC31AD00D4CB8D;
+			remoteInfo = VBTaskManager;
+		};
+		C0ED8905234CC3D30097A367 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C04FD5E422AC31AD00D4CB8D /* Project object */;
 			proxyType = 1;
@@ -82,6 +91,10 @@
 		C0ED88E9234526A10097A367 /* VBLocalDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBLocalDataManagerTests.swift; sourceTree = "<group>"; };
 		C0ED88EB2345276F0097A367 /* VBDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBDataManagerMock.swift; sourceTree = "<group>"; };
 		C0ED88ED2345279E0097A367 /* VBTasksPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTasksPresenterTests.swift; sourceTree = "<group>"; };
+		C0ED88F52348A73B0097A367 /* VBTaskManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VBTaskManagerUITests.swift; path = ../VBTaskManagerTests/Tests/VBTaskManagerUITests.swift; sourceTree = "<group>"; };
+		C0ED88FA2349BBC20097A367 /* VBTasksPresenterUITestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTasksPresenterUITestMock.swift; sourceTree = "<group>"; };
+		C0ED8900234CC3D30097A367 /* VBTaskManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBTaskManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0ED8904234CC3D30097A367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +107,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C0ED88D5234525120097A367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0ED88FD234CC3D30097A367 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,6 +172,7 @@
 			children = (
 				C04FD5EE22AC31AD00D4CB8D /* VBTaskManager */,
 				C0ED88D9234525120097A367 /* VBTaskManagerTests */,
+				C0ED8901234CC3D30097A367 /* VBTaskManagerUITests */,
 				C04FD5ED22AC31AD00D4CB8D /* Products */,
 				739245646173CE34EE9EE026 /* Pods */,
 				A1467D5986C39BAEB8D7528A /* Frameworks */,
@@ -163,6 +184,7 @@
 			children = (
 				C04FD5EC22AC31AD00D4CB8D /* VBTaskManager.app */,
 				C0ED88D8234525120097A367 /* VBTaskManagerTests.xctest */,
+				C0ED8900234CC3D30097A367 /* VBTaskManagerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +192,7 @@
 		C04FD5EE22AC31AD00D4CB8D /* VBTaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				C0ED88F92349BB9A0097A367 /* UI Tests */,
 				C0CBE13122CA80510042B2AD /* Dependencies */,
 				C04FD5EF22AC31AD00D4CB8D /* AppDelegate.swift */,
 				C03E845C22BC067B009E37A9 /* Presenter */,
@@ -255,6 +278,23 @@
 			path = VBTaskManagerTests;
 			sourceTree = "<group>";
 		};
+		C0ED88F92349BB9A0097A367 /* UI Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C0ED88FA2349BBC20097A367 /* VBTasksPresenterUITestMock.swift */,
+			);
+			path = "UI Tests";
+			sourceTree = "<group>";
+		};
+		C0ED8901234CC3D30097A367 /* VBTaskManagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C0ED88F52348A73B0097A367 /* VBTaskManagerUITests.swift */,
+				C0ED8904234CC3D30097A367 /* Info.plist */,
+			);
+			path = VBTaskManagerUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,6 +335,24 @@
 			productReference = C0ED88D8234525120097A367 /* VBTaskManagerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C0ED88FF234CC3D30097A367 /* VBTaskManagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0ED8907234CC3D30097A367 /* Build configuration list for PBXNativeTarget "VBTaskManagerUITests" */;
+			buildPhases = (
+				C0ED88FC234CC3D30097A367 /* Sources */,
+				C0ED88FD234CC3D30097A367 /* Frameworks */,
+				C0ED88FE234CC3D30097A367 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0ED8906234CC3D30097A367 /* PBXTargetDependency */,
+			);
+			name = VBTaskManagerUITests;
+			productName = VBTaskManagerUITests;
+			productReference = C0ED8900234CC3D30097A367 /* VBTaskManagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -311,6 +369,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					C0ED88D7234525120097A367 = {
+						CreatedOnToolsVersion = 10.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C04FD5EB22AC31AD00D4CB8D;
+					};
+					C0ED88FF234CC3D30097A367 = {
 						CreatedOnToolsVersion = 10.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C04FD5EB22AC31AD00D4CB8D;
@@ -333,6 +396,7 @@
 			targets = (
 				C04FD5EB22AC31AD00D4CB8D /* VBTaskManager */,
 				C0ED88D7234525120097A367 /* VBTaskManagerTests */,
+				C0ED88FF234CC3D30097A367 /* VBTaskManagerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +415,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C0ED88D6234525120097A367 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0ED88FE234CC3D30097A367 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -421,6 +492,7 @@
 				C0D2D75D22AD118300E63F19 /* VBTaskCell.swift in Sources */,
 				C060308F22C13B0F00C4D748 /* VBTaskCellPresenter.swift in Sources */,
 				C04FD5F022AC31AD00D4CB8D /* AppDelegate.swift in Sources */,
+				C0ED88FB2349BBC20097A367 /* VBTasksPresenterUITestMock.swift in Sources */,
 				C0CBE13922CCEF690042B2AD /* VBLocalDataManager.swift in Sources */,
 				C0CBE13422CA80510042B2AD /* SwinjectStoryboard+Extensions.swift in Sources */,
 				C0D2D76322AD1C4500E63F19 /* VBTaskDetailsVC.swift in Sources */,
@@ -445,6 +517,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0ED88FC234CC3D30097A367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0ED890A234CC3DC0097A367 /* VBTaskManagerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -452,6 +532,11 @@
 			isa = PBXTargetDependency;
 			target = C04FD5EB22AC31AD00D4CB8D /* VBTaskManager */;
 			targetProxy = C0ED88DD234525120097A367 /* PBXContainerItemProxy */;
+		};
+		C0ED8906234CC3D30097A367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C04FD5EB22AC31AD00D4CB8D /* VBTaskManager */;
+			targetProxy = C0ED8905234CC3D30097A367 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -661,6 +746,65 @@
 			};
 			name = Release;
 		};
+		C0ED8908234CC3D30097A367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VBTaskManagerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = VB.VBTaskManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VBTaskManager;
+			};
+			name = Debug;
+		};
+		C0ED8909234CC3D30097A367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VBTaskManagerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = VB.VBTaskManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VBTaskManager;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -687,6 +831,15 @@
 			buildConfigurations = (
 				C0ED88E0234525120097A367 /* Debug */,
 				C0ED88E1234525120097A367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0ED8907234CC3D30097A367 /* Build configuration list for PBXNativeTarget "VBTaskManagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0ED8908234CC3D30097A367 /* Debug */,
+				C0ED8909234CC3D30097A367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

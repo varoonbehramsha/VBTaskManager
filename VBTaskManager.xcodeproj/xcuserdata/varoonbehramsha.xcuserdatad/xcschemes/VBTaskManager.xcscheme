@@ -38,6 +38,16 @@
                ReferencedContainer = "container:VBTaskManager.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C0ED88FF234CC3D30097A367"
+               BuildableName = "VBTaskManagerUITests.xctest"
+               BlueprintName = "VBTaskManagerUITests"
+               ReferencedContainer = "container:VBTaskManager.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

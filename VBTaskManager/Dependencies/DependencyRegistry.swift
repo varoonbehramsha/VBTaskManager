@@ -37,12 +37,18 @@ class DependencyRegistry:DependencyRegistryProtocol {
             VBDataManager(remoteDataManager: self.container.resolve(VBRemoteDataManager.self)!, localDataManager: self.container.resolve(VBLocalDataManager.self)!)
         }.inObjectScope(.container)
 
+       
     }
     
     func registerPresenters() {
         container.register(VBTasksPresenter.self){r in VBTasksPresenter(dataManager: r.resolve(VBDataManager.self)!)}
         container.register(VBTaskCellPresenter.self){ (r, task: VBTaskDTO) in VBTaskCellPresenter(task: task)}
         container.register(VBTaskDetailsPresenter.self){ (r, task:VBTaskDTO) in VBTaskDetailsPresenter(task: task,dataManager: r.resolve(VBDataManager.self)!)}
+        
+        if ProcessInfo.processInfo.arguments.contains("UITests")
+        {
+            container.register(VBTasksPresenterUITestMock.self) { _ in VBTasksPresenterUITestMock() }
+        }
     }
     
     func registerViewControllers() {
@@ -76,20 +82,5 @@ class DependencyRegistry:DependencyRegistryProtocol {
         return container.resolve(VBTaskDetailsVC.self, arguments: task, delegate)!
     }
     
-//    typealias SpyCellMaker = (UITableView, IndexPath, SpyDTO) -> SpyCell
-//    func makeSpyCell(for tableView: UITableView, at indexPath: IndexPath, spy: SpyDTO) -> SpyCell {
-//        let presenter = container.resolve(SpyCellPresenter.self, argument: spy)!
-//        let cell = SpyCell.dequeue(from: tableView, for: indexPath, with: presenter)
-//        return cell
-//    }
-//    
-//    typealias DetailViewControllerMaker = (SpyDTO) -> DetailViewController
-//    func makeDetailViewController(with spy: SpyDTO) -> DetailViewController {
-//        return container.resolve(DetailViewController.self, argument: spy)!
-//    }
-//
-//    typealias SecretDetailsViewControllerMaker = (SpyDTO, SecretDetailsDelegate)  -> SecretDetailsViewController
-//    func makeSecretDetailsViewController(with spy: SpyDTO, delegate: SecretDetailsDelegate) -> SecretDetailsViewController {
-//        return container.resolve(SecretDetailsViewController.self, arguments: spy, delegate)!
-//    }
+
 }

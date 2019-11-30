@@ -27,6 +27,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Design Cell UI" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-tS-Rcw">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="TaskTitleLabel"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -45,6 +46,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTc-pS-FSe">
                                                 <rect key="frame" x="321" y="0.0" width="53" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="DueDateButton"/>
                                                 <state key="normal" title="9th Jun"/>
                                             </button>
                                         </subviews>
@@ -77,7 +79,7 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7u-zm-W8Y">
+                                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7u-zm-W8Y">
                                                 <rect key="frame" x="259" y="0.0" width="115" height="29"/>
                                                 <segments>
                                                     <segment title="Open"/>
@@ -95,6 +97,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ReC-eR-9WX">
                                         <rect key="frame" x="0.0" y="248" width="374" height="562"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="NotesTextView"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

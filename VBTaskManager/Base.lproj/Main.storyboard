@@ -30,6 +30,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="!!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5t-yP-lxc">
                                                     <rect key="frame" x="0.0" y="0.0" width="17.5" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="TaskCellPriorityLabel"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -39,12 +40,14 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Design Cell UI Design Cell UI Design Cell UI" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHK-WQ-MBy">
                                                             <rect key="frame" x="0.0" y="0.0" width="278.5" height="49"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="TaskCellTitleLabel"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="9 Jun" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idK-X3-eNM">
                                                             <rect key="frame" x="282.5" y="0.0" width="45" height="20.5"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="TaskCellDateLabel"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>

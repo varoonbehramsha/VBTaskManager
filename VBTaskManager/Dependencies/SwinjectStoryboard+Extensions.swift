@@ -17,10 +17,20 @@ extension SwinjectStoryboard {
             dependencyRegistry.container.storyboardInitCompleted(VBTasksTVC.self) { r, vc in
 
 
-                let presenter = r.resolve(VBTasksPresenter.self)!
+                if ProcessInfo.processInfo.arguments.contains("UITests")
+                {
+                    let presenter = r.resolve(VBTasksPresenterUITestMock.self)
+                    //NOTE: We don't have access to the constructor for this VC so we are using method injection
+                    vc.configure(with: presenter!, taskDetailsVCMaker: dependencyRegistry.makeTaskDetailsVC, taskCellMaker: dependencyRegistry.makeTaskCell)
+                    
+                }else
+                {
+                    let presenter = r.resolve(VBTasksPresenter.self)!
+                    //NOTE: We don't have access to the constructor for this VC so we are using method injection
+                    vc.configure(with: presenter, taskDetailsVCMaker: dependencyRegistry.makeTaskDetailsVC, taskCellMaker: dependencyRegistry.makeTaskCell)
+                }
 
-                //NOTE: We don't have access to the constructor for this VC so we are using method injection
-                vc.configure(with: presenter, taskDetailsVCMaker: dependencyRegistry.makeTaskDetailsVC, taskCellMaker: dependencyRegistry.makeTaskCell)
+               
 
             }
         }

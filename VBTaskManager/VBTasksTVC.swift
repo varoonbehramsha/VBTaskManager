@@ -13,11 +13,11 @@ class VBTasksTVC: UITableViewController,VBTaskDetailsVCDelegate
     
     
 
-    fileprivate var presenter : VBTasksPresenter!
+    fileprivate var presenter : TaskPresenterProtocol!
     fileprivate var taskCellMaker : DependencyRegistry.TaskCellMaker!
     fileprivate var taskDetailsVCMaker : DependencyRegistry.TaskDetailsVCMaker!
     
-    func configure(with presenter:VBTasksPresenter, taskDetailsVCMaker: @escaping DependencyRegistry.TaskDetailsVCMaker, taskCellMaker: @escaping DependencyRegistry.TaskCellMaker)
+    func configure(with presenter:TaskPresenterProtocol, taskDetailsVCMaker: @escaping DependencyRegistry.TaskDetailsVCMaker, taskCellMaker: @escaping DependencyRegistry.TaskCellMaker)
     {
         self.presenter = presenter
         self.taskCellMaker = taskCellMaker
